@@ -20,18 +20,11 @@ public class FilmService {
         this.filmRepository = filmRepository;
     }
 
-    public Film findByFilmGenre(String genre)
-    {
+    public Film findByFilmGenre(String genre) {
         return filmRepository.findByFilmGenre(genre);
     }
 
-    public Film findByFilmName(String filmName)
-    {
+    public Film findByFilmName(String filmName) {
         return filmRepository.findByFilmName(filmName);
-    }
-
-    public List<Film> findAll()
-    {
-        return filmRepository.findAll();
     }
 }

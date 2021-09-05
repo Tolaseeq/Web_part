@@ -31,13 +31,6 @@ public class LoginController {
         return modelAndView;
     }
 
-    @GetMapping("/films")
-    public String findAll(Model model){
-        List<Film> films = filmService.findAll();
-        model.addAttribute("films", films);
-        return "film_list";
-    }
-
     @GetMapping(value="/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();

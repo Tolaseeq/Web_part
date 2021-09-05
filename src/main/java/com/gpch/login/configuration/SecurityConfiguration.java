@@ -1,11 +1,7 @@
 package com.gpch.login.configuration;
 
-import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -66,14 +62,4 @@ public class SecurityConfiguration implements WebMvcConfigurer {
             return null;
         }
     }
-
-    /*@Bean
-    public PasswordEncoder passwordMD5Encoder()
-    {
-        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        passwordEncoder.setDefaultPasswordEncoderForMatches(new MessageDigestPasswordEncoder("MD5"));
-        passwordEncoder.
-        return new MD5Encoder();
-    }*/
-
 }

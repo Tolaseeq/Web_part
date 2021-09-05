@@ -23,7 +23,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private MyUserDetailsService userDetailsService;
 
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
                 auth
@@ -43,8 +42,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(loginPage).permitAll()
                 .antMatchers("/registration").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/user/**").hasAuthority("USER")
-                .antMatchers("/banned/**").hasAuthority("BANNED")
                 .anyRequest()
                 .authenticated()
                 .and().csrf().disable()

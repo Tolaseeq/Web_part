@@ -27,4 +27,8 @@ public class FilmService {
     public Film findByFilmName(String filmName) {
         return filmRepository.findByFilmName(filmName);
     }
+
+    public List<Film> findAll() {
+        return filmRepository.findAll();
+    }
 }

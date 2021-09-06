@@ -22,7 +22,6 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-    private FilmService filmService;
 
     @GetMapping(value={"/", "/login"})
     public ModelAndView login(){

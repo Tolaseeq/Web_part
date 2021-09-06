@@ -28,7 +28,6 @@ public class Film {
     @NotEmpty(message = "*Please provide the film's name")
     private String filmName;
     @Column(name = "film_genre")
-    @Email(message = "*Please provide a valid Email")
     @NotEmpty(message = "*Please provide an email")
     private String filmGenre;
     @Column(name = "film_description")

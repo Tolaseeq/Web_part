@@ -1,12 +1,16 @@
 package com.gpch.login.controller;
 
+import com.gpch.login.model.Film;
 import com.gpch.login.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class FilmController {
@@ -14,10 +18,10 @@ public class FilmController {
     private FilmService filmService;
 
     @GetMapping(value="/user/films")
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
+    public String login(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        modelAndView.setViewName("film_list");
-        return modelAndView;
+        List<Film> listFilm = filmService.findAll();
+        model.addAttribute("listFilm", listFilm);
+        return "film_list_test";
     }
 }

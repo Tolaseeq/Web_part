@@ -40,7 +40,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="film : ${listFilm}">
+    <tr th:each="film : ${user.watchedFilms}">
       <td th:text="${film.id}">ID</td>
       <td th:text="${film.filmName}">Film Name</td>
       <td th:text="${film.filmGenre}">Film Genre</td>

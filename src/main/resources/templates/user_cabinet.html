@@ -28,6 +28,27 @@
       <td th:text="${user.lastName}">Last Name</td>
     </tr>
   </table>
+  <h1>Here is your watchlist:</h1>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Film Name</th>
+      <th>Genre</th>
+      <th>Description</th>
+      <th>Critic Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="film : ${listFilm}">
+      <td th:text="${film.id}">ID</td>
+      <td th:text="${film.filmName}">Film Name</td>
+      <td th:text="${film.filmGenre}">Film Genre</td>
+      <td th:text="${film.filmDescription}">Film Description</td>
+      <td th:text="${film.criticRate}">Critic Rate</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 </body>
 </html>

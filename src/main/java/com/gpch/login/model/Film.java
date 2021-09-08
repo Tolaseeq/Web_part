@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Data
 @Builder
@@ -31,4 +32,13 @@ public class Film {
     private String filmDescription;
     @Column(name = "critic_rate")
     private String criticRate;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "user_film",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> watchedUsers;
+
 }

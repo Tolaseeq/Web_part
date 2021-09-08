@@ -46,5 +46,7 @@ public class User {
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "user_film", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "film_id"))
+    private Set<Film> watchedFilms;
 }

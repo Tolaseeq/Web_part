@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -40,5 +41,15 @@ public class UserService {
         Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
+    }
+
+    public User getUserById(Long id) throws Exception {
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new Exception("Такого пользователя нет в базе данных");
+        }
     }
 }

@@ -8,16 +8,16 @@
 <body>
 <div align="center">
   <h1>films Records</h1>
-  <a href="/new">Enter New film</a>
+  <a href="/user/cabinet">My Cabinet</a>
   <br/><br/>
   <table border="1" cellpadding="10">
     <thead>
     <tr>
       <th>ID</th>
-      <th>Item Name</th>
-      <th>Quantity</th>
-      <th>Amount</th>
-      <th>Actions</th>
+      <th>Film Name</th>
+      <th>Genre</th>
+      <th>Description</th>
+      <th>Critic Rate</th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +26,7 @@
       <td th:text="${film.filmName}">Film Name</td>
       <td th:text="${film.filmGenre}">Film Genre</td>
       <td th:text="${film.filmDescription}">Film Description</td>
+      <td th:text="${film.criticRate}">Critic Rate</td>
 <!--      <td>-->
 <!--        <a th:href="/@{'/edit/' + ${film.id}}">Edit</a>-->
 <!--        &nbsp;&nbsp;&nbsp;-->
@@ -34,6 +35,7 @@
     </tr>
     </tbody>
   </table>
+  <p><a href="/user_cabinet">Create user</a></p>
 </div>
 </body>
 </html>

@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.util.Set;
 
 @Data
 @Builder
@@ -25,13 +23,12 @@ public class Film {
     private Integer id;
     @Column(name = "film_name")
     @Length(min = 3, message = "*Your film name must have at least 3 characters")
-    @NotEmpty(message = "*Please provide the film's name")
     private String filmName;
     @Column(name = "film_genre")
-    @NotEmpty(message = "*Please provide an email")
     private String filmGenre;
     @Column(name = "film_description")
     @Length(min = 5, message = "*Your description must have at least 5 characters")
-    @NotEmpty(message = "*Please provide the critic's rate")
     private String filmDescription;
+    @Column(name = "critic_rate")
+    private String criticRate;
 }

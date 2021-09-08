@@ -32,33 +32,5 @@ public class FilmServiceTest {
                 .filmDescription("Описание 3")
                 .build();
 
-        Mockito.when(mockFilmRepository.findByFilmGenre(anyString()))
-                .thenReturn(Film);
-        Mockito.when(mockFilmRepository.findByFilmName(anyString()))
-                .thenReturn(Film);
-    }
-
-    @Test
-    public void testFindFilmByFilmName() {
-        // Setup
-        final String filmname = "Зелёный Слоник";
-
-        // Run the test
-        final Film result = FilmServiceUnderTest.findByFilmName(filmname);
-
-        // Verify the results
-        assertEquals(filmname, result.getFilmName());
-    }
-
-    @Test
-    public void testFindFilmByFilmGenre() {
-        // Setup
-        final String filmgenre= "Артхаус";
-
-        // Run the test
-        final Film result = FilmServiceUnderTest.findByFilmGenre(filmgenre);
-
-        // Verify the results
-        assertEquals(filmgenre, result.getFilmGenre());
     }
 }

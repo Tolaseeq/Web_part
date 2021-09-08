@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -48,5 +49,5 @@ public class User {
     private Set<Role> roles;
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_film", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "film_id"))
-    private Set<Film> watchedFilms;
+    private List<Film> watchedFilms;
 }

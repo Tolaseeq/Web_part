@@ -1,5 +1,6 @@
 package com.gpch.login.controller;
 
+import com.gpch.login.model.Film;
 import com.gpch.login.model.User;
 import com.gpch.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -71,7 +73,9 @@ public class LoginController {
     public String login(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
+        List<Film> films = user.getWatchedFilms();
         model.addAttribute("user", user);
+        model.addAttribute("films", films);
         return "user_cabinet";
     }
 

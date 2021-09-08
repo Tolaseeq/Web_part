@@ -27,7 +27,7 @@
       <td th:text="${film.filmGenre}">Film Genre</td>
       <td th:text="${film.filmDescription}">Film Description</td>
       <td th:text="${film.criticRate}">Critic Rate</td>
-      <td><a th:href="@{add_to_watchlist/{id}(id=${film.id})}">Mark as Watched</a></td>
+      <td><a th:href="@{/user/add_to_watchlist/(id=${film.id})}">Mark as Watched</a></td>
     </tr>
     </tbody>
   </table>

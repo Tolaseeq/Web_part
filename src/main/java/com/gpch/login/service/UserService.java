@@ -1,5 +1,6 @@
 package com.gpch.login.service;
 
+import com.gpch.login.model.Film;
 import com.gpch.login.model.Role;
 import com.gpch.login.model.User;
 import com.gpch.login.repository.RoleRepository;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -40,6 +42,13 @@ public class UserService {
         user.setActive(true);
         Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        return userRepository.save(user);
+    }
+
+    public User addWatchedFilm(User user, Film film) {
+        List<Film> films =  user.getWatchedFilms();
+        films.add(film);
+        user.setWatchedFilms(films);
         return userRepository.save(user);
     }
 

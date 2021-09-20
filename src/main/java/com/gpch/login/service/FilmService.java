@@ -5,6 +5,7 @@ import com.gpch.login.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmService {
@@ -18,5 +19,9 @@ public class FilmService {
 
     public List<Film> findAll() {
         return filmRepository.findAll();
+    }
+
+    public Optional<Film> findById(Long id) {
+        return filmRepository.findById(id);
     }
 }

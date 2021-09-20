@@ -3,6 +3,7 @@ package com.gpch.login.controller;
 import com.gpch.login.model.Film;
 import com.gpch.login.model.User;
 import com.gpch.login.service.UserService;
+import com.gpch.login.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -71,6 +72,7 @@ public class LoginController {
 
     @GetMapping(value="/user/cabinet")
     public String login(Model model) {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         List<Film> films = user.getWatchedFilms();

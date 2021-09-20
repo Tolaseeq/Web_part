@@ -47,6 +47,12 @@ public class UserService {
 
     public User addWatchedFilm(User user, Film film) {
         List<Film> films =  user.getWatchedFilms();
+        for (Film f : films)
+        {
+            if (film == f){
+                return null;
+            }
+        }
         films.add(film);
         user.setWatchedFilms(films);
         return userRepository.save(user);

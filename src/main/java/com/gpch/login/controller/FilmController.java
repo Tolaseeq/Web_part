@@ -13,9 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Level;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Controller
 public class FilmController {
@@ -24,6 +22,7 @@ public class FilmController {
 
     @Autowired
     private FilmService filmService;
+    @Autowired
     private UserService userService;
 
     @GetMapping(value="/user/films")
@@ -34,18 +33,13 @@ public class FilmController {
     }
 
     @GetMapping("/user/add_to_watchlist/{id}")
-    public String addToWatchlist(@RequestParam(value = "id") Long id, Model model){
-
+    public String addToWatchlist(@PathVariable("id") Integer id){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         var film = filmService.findById(id);
         if (film.isPresent()) {
             userService.addWatchedFilm(user, film.get());
         }
-
-        logger.debug("Film is " + film.get());
-        model.addAttribute("user", user);
-        model.addAttribute("film", film);
-        return "film_list_test";
+        return "redirect:/user/films";
     }
 }

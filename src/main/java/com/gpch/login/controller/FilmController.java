@@ -27,8 +27,11 @@ public class FilmController {
 
     @GetMapping(value="/user/films")
     public String login(Model model) {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUserName(auth.getName());
         List<Film> listFilm = filmService.findAll();
         model.addAttribute("listFilm", listFilm);
+        model.addAttribute("user", user);
         return "film_list_test";
     }
 

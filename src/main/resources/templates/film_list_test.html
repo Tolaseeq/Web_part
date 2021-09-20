@@ -27,7 +27,14 @@
       <td th:text="${film.filmGenre}">Film Genre</td>
       <td th:text="${film.filmDescription}">Film Description</td>
       <td th:text="${film.criticRate}">Critic Rate</td>
-      <td><a th:href="@{/user/add_to_watchlist/{id}(id=${film.id})}">Mark as Watched</a></td>
+      <td>
+        <a th:if="${user.getWatchedFilms().contains(film)}"
+        >Watched</a>
+        <a
+                th:unless="${user.getWatchedFilms().contains(film)}"
+                th:href="@{/user/add_to_watchlist/{id}(id=${film.id})}"
+        >Mark as Watched</a>
+      </td>
     </tr>
     </tbody>
   </table>

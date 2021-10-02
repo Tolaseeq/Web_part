@@ -1,0 +1,15 @@
+.btn{
+    border:1px solid #000000;
+    background: #F8E391;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.container{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
